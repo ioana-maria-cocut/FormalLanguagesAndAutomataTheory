@@ -1,0 +1,30 @@
+#
+#doar un test pentru config din CS112 lab1
+#
+Sigma:
+    word1
+    word2
+End
+#
+#
+#
+States:
+    state1
+    state2
+    state3 = F
+    stateK = S
+End
+#
+#
+#
+Transitions:
+    state1 word1 state2
+    state1 word2 state3
+    state2 word1 stateK
+    state2 word2 state1
+    state3 word1 state2
+    state3 word2 stateK
+End
+
+
+

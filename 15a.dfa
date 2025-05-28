@@ -1,0 +1,36 @@
+# Sypser 1.5 a)
+# Un DFA este definit ca un 5-tuple (Σ, Q, δ, q0, F) unde:
+#    - Σ este alfabetul (lista de simboluri) -> sigma
+#    - Q este multimea de stari (lista de stari) -> states
+#    - δ este functia de tranzitie (lista de tranzitii) -> transitions
+#    - q0 este starea inițiala (start_state) -> start_state
+#    - F este multimea de stari de acceptare (lista de stari de acceptare) -> accept_states
+# DAca doriti crearea unui nou fisier pda va rog respectati structura
+
+# simbolurile alfabetului sunt scrise pe linii separate
+Sigma:
+    a
+    b
+End
+
+#starile sunt scrise pe linii separate
+# daca o stare este initiala ea va fi urmata de un egal (=) si de S
+# daca o stare este finala ea va fi urmata de un egal (=) si de F
+# daca o stare este initiala si finala ea va fi urmata de S si F in orice ordine
+States:
+    q1 = S F
+    q2 = F
+    q3
+End
+
+# tranzitiile sunt scrise astfel:
+# stare1 simbol stare2
+# δ(stare1, simbol) = stare2
+Transitions:
+    q1 a q2
+    q1 b q2
+    q2 a q2
+    q2 b q3
+    q3 a q3
+    q3 b q3
+End

@@ -1,0 +1,52 @@
+# PDA that recognizes the language a^n b^n
+
+# Un PDA este definit ca un 7-tuplu (Σ, Γ, Q, δ, q0, F, Z0) unde:
+#   - Σ este alfabetul de intrare (lista de simboluri) -> sigma
+#   - Γ este alfabetul de stivă (lista de simboluri) -> gamma
+#   - Q este multimea de stari (lista de stari) -> states
+#   - δ : Q x (Σ U {ε}) x (Γ U {ε}) -> P(Q x Γ)* este functia de tranzitie (lista de tranzitii) -> transitions
+#   - q0 este starea inițială (start_state) -> start_state
+#   - F este multimea de stari de acceptare (lista de stari de acceptare) -> accept_states
+#   - Z0 este simbolul de start al stivei (start_symbol) -> start_symbol
+
+#Daca doriti crearea unui nou fisier pda va rog respectati structura
+
+# Simbolurile alfabetului de intrare sunt scrise pe linii separate
+Sigma:
+    a
+    b
+End
+
+# Simbolurile alfabetului de stiva sunt scrise pe linii separate
+Gamma:
+    Z
+    A
+End
+
+# Starile sunt scrise pe linii separate
+StartSymbol:
+    Z
+End
+
+# starile sunt scrise pe linii separate
+# daca o stare este initiala ea va fi urmata de un egal (=) si de S
+# daca o stare este finala ea va fi urmata de un egal (=) si de F
+# daca o stare este initiala si finala ea va fi urmata de S si F in orice ordine
+States:
+    q0 = S
+    q1
+    q2 = F
+End
+
+# tranzitiile sunt scrise astfel:
+# stare1 simbol top_stiva > stare2 simbol_nou_stiva
+# δ(stare1, simbol, top_stiva) = (stare2, simbol_nou_stiva)
+Transitions:
+    q0 ε Z > q2 ε
+    q0 a Z > q1 AZ
+    q0 a A > q1 AA
+    q1 a Z > q1 AZ
+    q1 a A > q1 AA
+    q1 b A > q1 ε
+    q1 ε Z > q2 ε
+End

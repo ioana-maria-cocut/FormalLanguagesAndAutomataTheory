@@ -1,0 +1,48 @@
+# nfa de la curs 3 figura The nfa N1
+# acest nfa recunoaste stringuri-le care contin substring-ul 101
+
+
+# Un NFA este definit ca un 5-tuplu (Σ, Q, δ, q0, F) unde:
+#    - Σ este alfabetul (lista de simboluri) -> sigma
+#    - Q este multimea de stari (lista de stari) -> states
+#    - δ : Q x (Σ U {ε}) -> P(Q)  este functia de tranzitie (lista de tranzitii) -> transitions
+#    - q0 este starea inițiala (start_state) -> start_state
+#    - F este multimea de stari de acceptare (lista de stari de acceptare) -> accept_states
+#Daca doriti crearea unui nou fisier nfa va rog respectati structura
+
+#Simbolurile alfabetului sunt scrise pe linii separate
+Sigma:
+    0
+    1
+End
+
+#Starile sunt scrise pe linii separate urmate de un egal (=) si de S pentru starea initiala
+# si de F pentru starea finala
+# daca o stare este initiala si finala ea va fi urmata de S si F in orice ordine
+
+States:
+    q1 = S
+    q2
+    q3
+    q4 = F
+    garbage
+End
+
+#Tranzitiile sunt scrise astfel:
+# stare1 simbol stare2
+# δ(stare1, simbol) = stare2
+Transitions:
+    q1 0 q1
+    q1 1 q1
+    q1 1 q2
+    q1 ε garbage
+    q2 0 q3
+    q2 1 garbage
+    q2 ε q3
+    q3 0 garbage
+    q3 1 q4
+    q3 ε garbage
+    q4 0 q4
+    q4 1 q4
+    q4 ε garbage
+End
