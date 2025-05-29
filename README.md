@@ -129,7 +129,7 @@ End
 Structura fisierelor .tm
 ```
 #comentarii
-#acesta este un exemplu 
+#acesta este un exemplu pe care mi l-a dat claude.ai care nu functioneaza eu 1 - ai 0
 [Band]
 1 1 1 + 1 1 + 1 1 1 $
 [End]
